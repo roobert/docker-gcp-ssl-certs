@@ -74,4 +74,4 @@ RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
 ADD /gcp-ssl-certs.rb /gcp-ssl-certs.rb
 ADD /run.sh /run.sh
 
-CMD [ "/run.sh", "10", "/gcp-ssl-certs.rb" ]
+CMD [ "/run.sh", "10", "/gcp-ssl-certs.rb", "/target_group/gcp-ssl-certs.json" ]
