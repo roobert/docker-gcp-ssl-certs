@@ -9,6 +9,5 @@ while sleep "${INTERVAL}"; do
   if [[ $? -ne 0 ]]; then
     break
   fi
-  cp -v "${FILE}.new" "${FILE}"
-  rm "${FILE}.new"
+  mv -v "${FILE}.new" "${FILE}"
 done
