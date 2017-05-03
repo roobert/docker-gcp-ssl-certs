@@ -2,7 +2,7 @@
 
 INTERVAL="${1}"
 COMMAND="${2}"
-FILE="/target_group/${3}"
+FILE="${3}"
 
 while sleep "${INTERVAL}"; do
   ${COMMAND} > "${FILE}.new"
