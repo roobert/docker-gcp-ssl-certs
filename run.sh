@@ -5,9 +5,10 @@ COMMAND="${2}"
 FILE="${3}"
 
 while sleep "${INTERVAL}"; do
-  ${COMMAND} > "${FILE}.new"
+  ${COMMAND} | tee "${FILE}.new"
   if [[ $? -ne 0 ]]; then
     break
   fi
-  mv -v "${FILE}.new" "${FILE}"
+  cp -v "${FILE}.new" "${FILE}"
+  rm "${FILE}.new"
 done
