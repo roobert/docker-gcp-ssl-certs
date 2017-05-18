@@ -29,15 +29,19 @@ def service(address)
 end
 
 def defunct_services
+  cert_cache = certificates
   Diplomat::Service.get_all.each_pair.reject do |service, tags|
-    !certificates.include?(service.to_s) || tags.include?("gcp-ssl-cert-cn")
+    (cert_cache.include?(service.to_s) && tags.include?("gcp-ssl-cert-cn")) \
+      || !tags.include?("gcp-ssl-cert-cn")
   end
 end
 
 certificates.each do |address|
+  puts "registering: #{address}"
   Diplomat::Service.register(service(address))
 end
 
-defunct_services.each do |service, tags|
+defunct_services.to_h.each do |service, _|
+  puts "deregistering: #{service}"
   Diplomat::Service.deregister(service.to_s)
 end
