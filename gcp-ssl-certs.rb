@@ -24,7 +24,7 @@ def service(address)
     "ID"      => address,
     "Name"    => address,
     "Address" => "127.0.0.1",
-    "Tags"    => [ "gcp-ssl-cert-cn" ]
+    "Tags"    => [ "gcp-ssl-cert-cn", "cert-cn" ]
   }
 end
 

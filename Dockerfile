@@ -78,4 +78,4 @@ RUN bundle install
 
 ADD run.sh /run.sh
 
-CMD [ "/run.sh", "10", "/gcp-ssl-certs.rb", "/target_group/gcp-ssl-certs.json" ]
+CMD [ "/run.sh", "10", "/gcp-ssl-certs.rb" ]
