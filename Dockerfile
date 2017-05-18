@@ -71,7 +71,11 @@ ENV PATH $BUNDLE_BIN:$PATH
 RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
 	&& chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
 
-ADD /gcp-ssl-certs.rb /gcp-ssl-certs.rb
-ADD /run.sh /run.sh
+ADD gcp-ssl-certs.rb /gcp-ssl-certs.rb
+
+ADD Gemfile /
+RUN bundle install
+
+ADD run.sh /run.sh
 
 CMD [ "/run.sh", "10", "/gcp-ssl-certs.rb", "/target_group/gcp-ssl-certs.json" ]

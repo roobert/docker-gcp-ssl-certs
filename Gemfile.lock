@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    diplomat (1.3.0)
+      faraday (~> 0.9)
+      json
+    faraday (0.12.1)
+      multipart-post (>= 1.2, < 3)
+    json (2.1.0)
+    multipart-post (2.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  diplomat
+
+BUNDLED WITH
+   1.13.6
